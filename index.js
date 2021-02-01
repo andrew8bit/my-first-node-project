@@ -1,27 +1,48 @@
-const myModule = require('./myModule');
-const myOtherModule = require('./myOtherModule');
-const myThridModule = require('./myThirdModule')
+const fs = require('fs');
+const moment = require('moment');
 
-console.log('Hello World');
+let myDate = moment('2021-02-01'); 
+let myClone = myDate.clone();
 
-const hello = (name) => {
-    console.log(`Hello, ${name}`);
-}
+console.log(myClone);
+let addOneWeek = myDate.add(1, 'week');
+myDate.format();
+console.log(myDate.format());
 
-hello('Andrew');
-hello('Archie');
+fs.readFile('nfl.txt', 'utf8', function(error, data){
+    if (error) {
+        console.log('You had a problem reading this file');
+    } else {
+        console.log(data);
+    }
+});
 
-console.log(myModule.add(2,2));
-console.log(myModule.sub(10,2))
-console.log(myModule.team)
 
-myModule.team = 'Lakers'
-const team = "Boston"
 
-console.log(myModule.team)
+// const myModule = require('./myModule');
+// const myOtherModule = require('./myOtherModule');
+// const myThridModule = require('./myThirdModule')
 
-// my other module
+// console.log('Hello World');
 
-myOtherModule.welcomeToNode();
+// const hello = (name) => {
+//     console.log(`Hello, ${name}`);
+// }
 
-myThridModule.helloBro();
+// hello('Andrew');
+// hello('Archie');
+
+// console.log(myModule.add(2,2));
+// console.log(myModule.sub(10,2))
+// console.log(myModule.team)
+
+// myModule.team = 'Lakers'
+// const team = "Boston"
+
+// console.log(myModule.team)
+
+// // my other module
+
+// myOtherModule.welcomeToNode();
+
+// myThridModule.helloBro();
